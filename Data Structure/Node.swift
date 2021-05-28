@@ -26,7 +26,7 @@ class Node<T> {
         return next
     }
     
-    func setNext(_ node: Node<T>) {
+    func setNext(_ node: Node<T>?) {
         self.next = node
     }
     

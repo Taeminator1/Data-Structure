@@ -45,19 +45,20 @@ extension LinkedList {
                 return
             }
             
-            if index != count - 1 {             // 대상 Node의 다음 Node 설정
-                newValue!.setNext(self[index + 1]!)
-            }
+            newValue!.setNext(self[index + 1])
             
             if index == 0 {                     // 첫 번째 원소를 수정하는 경우
                 self.first = newValue           // 대상 Node를 first로 설정
             }
             else {                              // 이전 Node의 다음 Node를 대상 Node로 설정
+                if index == count - 1 {         // 마지막 원소를 수정하는 경우
+                    self.last = newValue
+                }
                 var node: Node<Element> = first!
                 for _ in 0 ..< index - 1 {
                     node = node.getNext()!
                 }
-                node.setNext(newValue!)
+                node.setNext(newValue)
             }
         }
     }

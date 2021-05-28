@@ -20,8 +20,10 @@ print(linkedList[0]!.data)                                      // 1
 print(linkedList[1]!.data)                                      // 2
 print(linkedList[2]!.data)                                      // 3
 
+linkedList[0] = Node(8)
 linkedList[1] = Node(4)                                         // Node with 4 has been created.
                                                                 // Node with 2 has been expired.
+linkedList[2] = Node(5)
 
 print(linkedList[0]!.data)                                      // 1
 print(linkedList[1]!.data)                                      // 4
