@@ -45,7 +45,7 @@ extension LinkedList {
                 return
             }
             
-            newValue!.setNext(self[index + 1])
+            newValue!.setNext(self[index + 1])  // 대상 Node의 다음 Node 설정
             
             if index == 0 {                     // 첫 번째 원소를 수정하는 경우
                 self.first = newValue           // 대상 Node를 first로 설정
