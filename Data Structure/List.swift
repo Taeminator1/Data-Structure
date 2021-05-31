@@ -30,21 +30,23 @@ class List<Element>: LinkedList<Element> {
             count += 1
         }
     }
-    
+}
+
+extension List {
     func remove(at index: Int) -> Node<Element>? {
         guard index >= 0 && index < self.count else {
             print("Index out of range")
             return nil
         }
         
-        let res: Node = self[index]!
+        let result: Node = self[index]!
         if index == 0 {
-            if count == 1 {             // List에 원소가 하나도 남지 않음
+            if count == 1 {         // List에 원소가 하나일 때
                 first = nil
                 last = nil
             }
             else {
-                first = self[1]         // return 이후 self[0]은 어디서도 참조되지 못하므로 자동으로 메모리에서 해제 됨
+                first = self[1]     // self[0]가 어디서도 참조되지 않으면 자동으로 메모리에서 해제 됨
             }
         }
         else {
@@ -53,13 +55,14 @@ class List<Element>: LinkedList<Element> {
                 tmpNode.setNext(nil)
                 last = tmpNode
             }
-            else {                      // return 이후 self[index]는 어디서도 참조되지 못하므로 자동으로 메모리에서 해제 됨
+            else {                  // self[index]가 어디서도 참조되지 않으면 자동으로 메모리에서 해제 됨
+//                self[index - 1]!.setNext(self[index + 1])
                 tmpNode.setNext(tmpNode.getNext()!.getNext())
             }
         }
         count -= 1
         
-        return res
+        return result
     }
 }
 

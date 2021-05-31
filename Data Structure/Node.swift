@@ -13,7 +13,7 @@ class Node<T> {
     
     init(_ data: T) {
         self.data = data
-        print("Node with \(data) has been created.")
+//        print("Node with \(data) has been created.")
     }
     
 //    init(data: T, link: Node?) {

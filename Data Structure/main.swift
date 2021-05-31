@@ -81,3 +81,22 @@ tmpNode = list.remove(at: 0)                                    // list의 원�
 print(tmpNode!.data)                                            // 0
 
 tmpNode = nil                                                   // Node with 0 has been expired.
+
+var arr: [Int] = []
+list = List<Int>()
+
+let number: Int = 100000
+var tmpDate: Date = Date()
+DispatchQueue.global().sync {
+    tmpDate = Date()
+    for i in 0 ..< number {
+        arr.insert(i, at: arr.count)
+    }
+    print("insert 소요 시간(Array): \(String(format: "%.3f", Date().timeIntervalSince(tmpDate)))")
+
+    tmpDate = Date()
+    for i in 0 ..< number {
+        list.insert(Node(i), at: list.count)
+    }
+    print("insert 소요 시간(List) : \(String(format: "%.3f", Date().timeIntervalSince(tmpDate)))")
+}
