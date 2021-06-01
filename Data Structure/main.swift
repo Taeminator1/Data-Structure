@@ -9,7 +9,6 @@ import Foundation
 
 print("Hello, World!")
 
-
 // MARK: - Linked List Test
 print("<Linked List Test>")
 var linkedList: LinkedList = LinkedList<Int>(Node(1))
@@ -100,3 +99,38 @@ DispatchQueue.global().sync {
     }
     print("insert 소요 시간(List) : \(String(format: "%.3f", Date().timeIntervalSince(tmpDate)))")
 }
+
+// MARK: - Heap Test
+var heap: Heap = Heap<Int>(isMaxHeap: false)
+heap.insert(key: 10)
+heap.insert(key: 5)
+heap.insert(key: 30)
+heap.insert(key: 8)
+heap.insert(key: 9)
+heap.insert(key: 3)
+heap.insert(key: 7)
+for i in 0 ..< heap.count {
+    print(heap.hNodes[i].getKey())
+}
+print("")
+
+heap.remove(at: 1)
+for i in 0 ..< heap.count {
+    print(heap.hNodes[i].getKey())
+}
+print("")
+
+heap.remove()
+for i in 0 ..< heap.count {
+    print(heap.hNodes[i].getKey())
+}
+print("")
+
+func calc(_ lhs: Int, _ rhs: Int, f: (Int, Int) -> Int) -> Int {
+    return f(lhs, rhs)
+}
+
+print(calc(3, 4) { $0 + $1 })
+
+
+
