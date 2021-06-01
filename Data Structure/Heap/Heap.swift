@@ -52,11 +52,17 @@ extension Heap {
     }
 }
 
-//extension Heap {
-//    func isEmpty() -> Bool {
-//        return count == 0 ? true : false
-//    }
-//}
+extension Heap {
+    func isEmpty() -> Bool {
+        return count == 0 ? true : false
+    }
+    
+    func displayElements() {
+        hNodes.forEach {
+            print($0.getKey())
+        }
+    }
+}
 
 extension Heap {
     func insert(key: Element) {

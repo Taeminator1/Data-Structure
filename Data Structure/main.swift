@@ -109,28 +109,34 @@ heap.insert(key: 8)
 heap.insert(key: 9)
 heap.insert(key: 3)
 heap.insert(key: 7)
-for i in 0 ..< heap.count {
-    print(heap.hNodes[i].getKey())
-}
+heap.displayElements()
 print("")
 
 heap.remove(at: 1)
-for i in 0 ..< heap.count {
-    print(heap.hNodes[i].getKey())
-}
+heap.displayElements()
 print("")
 
 heap.remove()
-for i in 0 ..< heap.count {
-    print(heap.hNodes[i].getKey())
-}
+heap.displayElements()
 print("")
 
-func calc(_ lhs: Int, _ rhs: Int, f: (Int, Int) -> Int) -> Int {
-    return f(lhs, rhs)
-}
-
-print(calc(3, 4) { $0 + $1 })
 
 
+// MARK: - Priority Queue Test
+var priorityQueue: PriorityQueue = PriorityQueue<String>(isMaxHeap: false)
+priorityQueue.insert(key: "asg")
+priorityQueue.insert(key: "sagde")
+priorityQueue.insert(key: "ggfj")
+priorityQueue.insert(key: "cxzbr")
+priorityQueue.insert(key: "yer")
+priorityQueue.insert(key: "1hv")
+priorityQueue.insert(key: "dci")
+priorityQueue.insert(key: "32d")
+priorityQueue.insert(key: "[pbo")
+priorityQueue.displayElements()
+print("")
 
+priorityQueue.pop()
+priorityQueue.displayElements()
+
+priorityQueue.remove()
