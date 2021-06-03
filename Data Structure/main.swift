@@ -102,7 +102,7 @@ print("Hello, World!")
 
 // MARK: - Heap Test
 print("<Heap Test>")
-var heap: Heap = Heap<Int>(isMaxHeap: true)
+var heap: Heap = Heap<Int>(handler: <)
 heap.insert(data: 32)
 heap.insert(data: 4)
 heap.insert(data: 35)
@@ -121,24 +121,40 @@ heap.remove()
 heap.displayElements()
 print("")
 
+heap.remove()
+heap.displayElements()
+print("")
+
+heap.remove()
+heap.displayElements()
+print("")
+
+heap.remove()
+heap.displayElements()
+print("")
+
+heap.remove()
+heap.displayElements()
+print("")
+
 
 
 // MARK: - Priority Queue Test
-//print("<Priority Test>")
-//var priorityQueue: PriorityQueue = PriorityQueue<String>(isMaxHeap: false)
-//priorityQueue.insert(data: "asg")
-//priorityQueue.insert(data: "sagde")
-//priorityQueue.insert(data: "ggfj")
-//priorityQueue.insert(data: "cxzbr")
-//priorityQueue.insert(data: "yer")
-//priorityQueue.insert(data: "1hv")
-//priorityQueue.insert(data: "dci")
-//priorityQueue.insert(data: "32d")
-//priorityQueue.insert(data: "[pbo")
-//priorityQueue.displayElements()
-//print("")
-//
-//priorityQueue.pop()
-//priorityQueue.displayElements()
-//
-//priorityQueue.remove()
+print("<Priority Test>")
+var priorityQueue: PriorityQueue = PriorityQueue<String>(handler: <)
+priorityQueue.insert(data: "asg")
+priorityQueue.insert(data: "sagde")
+priorityQueue.insert(data: "ggfj")
+priorityQueue.insert(data: "cxzbr")
+priorityQueue.insert(data: "yer")
+priorityQueue.insert(data: "1hv")
+priorityQueue.insert(data: "dci")
+priorityQueue.insert(data: "32d")
+priorityQueue.insert(data: "[pbo")
+priorityQueue.displayElements()
+print("")
+
+priorityQueue.pop()
+priorityQueue.displayElements()
+
+priorityQueue.remove()

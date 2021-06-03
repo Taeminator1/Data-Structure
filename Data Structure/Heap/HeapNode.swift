@@ -12,6 +12,7 @@ class HeapNode<T: Comparable>: Comparable {
     
     init(_ data: T) {
         self.data = data
+//        print("Node with \(data) has been created.")
     }
     
     func getData() -> T {
@@ -31,7 +32,7 @@ class HeapNode<T: Comparable>: Comparable {
     }
     
     deinit {
-        print("Node with \(data) has been expired.")
+//        print("Node with \(data) has been expired.")
     }
 }
 

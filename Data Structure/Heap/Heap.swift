@@ -9,20 +9,11 @@ import Foundation
 
 class Heap<Element: Comparable> {
     var hNodes: [HeapNode<Element>] = []
-    var isMaxHeap: Bool
     var count: Int = 0      // hNodes의 원소의 개수
+    let handler: ((HeapNode<Element>, HeapNode<Element>) -> Bool)
     
-    init(isMaxHeap: Bool = true) {
-        self.isMaxHeap = isMaxHeap
-    }
-}
-
-extension Heap {
-    func isLhsBigger<T: Comparable>(lhs: T, rhs: T, isSameOK: Bool) -> Bool {
-        if isSameOK && lhs == rhs  { return true }
-        
-        if isMaxHeap    { return lhs > rhs }
-        else            { return rhs > lhs }
+    init(handler: @escaping ((HeapNode<Element>, HeapNode<Element>) -> Bool) = { $0 > $1 }) {
+        self.handler = handler
     }
 }
 
@@ -70,9 +61,7 @@ extension Heap {
         hNodes.append(HeapNode(data))           // hNodes의 자리만 늘리기 위한 목적
         count += 1
         
-//        while index > 0 && data > getParent(at: index)!.getData() {
-//        while index > 0 && data < getParent(at: index)!.getData() {
-        while index > 0 && isLhsBigger(lhs: data, rhs: getParent(at: index)!.getData(), isSameOK: false) {
+        while index > 0 && handler(HeapNode(data), getParent(at: index)!){
             hNodes[index].setData(hNodes[(index - 1) / 2].getData())
 //            hNodes[index] = hNodes[(index - 1) / 2]         // HeapNode가 클래스이기 때문에 참조하는 식으로 하면 안 됨,
 //                                                            // HeapNode가 구조체이면 가능
@@ -94,14 +83,11 @@ extension Heap {
         var pIndex: Int = index             // parent index
         var cIndex: Int = pIndex * 2 + 1    // child index
         while cIndex < count {
-//            if cIndex < count - 1 && getLeftChild(at: pIndex)! < getRightChild(at: pIndex)! {
-//            if cIndex < count - 1 && getLeftChild(at: pIndex)! > getRightChild(at: pIndex)! {
-            if cIndex < count - 1 && isLhsBigger(lhs: getRightChild(at: pIndex)!, rhs: getLeftChild(at: pIndex)!, isSameOK: false) {
+            if cIndex < count - 1 && handler(getRightChild(at: pIndex)!, getLeftChild(at: pIndex)!) {
                 cIndex += 1
             }
-//            if lastHeapNode >= hNodes[cIndex] { break }
-//            if lastHeapNode <= hNodes[cIndex] { break }
-            if isLhsBigger(lhs: lastHeapNode, rhs: hNodes[cIndex], isSameOK: true) { break }
+            
+            if lastHeapNode == hNodes[cIndex] && handler(lastHeapNode, hNodes[cIndex]) { break }
             
             hNodes[pIndex] = hNodes[cIndex]
             pIndex = cIndex
@@ -109,5 +95,11 @@ extension Heap {
         }
         hNodes[pIndex] = lastHeapNode
         return result
+    }
+}
+
+extension Heap {
+    func ex() {
+        print(handler(hNodes[0], hNodes[1]))
     }
 }
