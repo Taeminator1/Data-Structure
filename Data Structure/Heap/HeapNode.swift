@@ -8,25 +8,54 @@
 import Foundation
 
 class HeapNode<T: Comparable>: Comparable {
-    var key: T          // 비교 가능한 프로토콜 추가
-                        // 중복 가능
-    init(_ key: T) {
-        self.key = key
+    var data: T
+    
+    init(_ data: T) {
+        self.data = data
     }
     
-    func getKey() -> T {
-        return key
+    func getData() -> T {
+        return data
     }
     
-    func setKey(_ key: T) {
-        self.key = key
+    func setData(_ data: T) {
+        self.data = data
     }
     
     static func < (lhs: HeapNode<T>, rhs: HeapNode<T>) -> Bool {
-        return lhs.getKey() < rhs.getKey()
+        return lhs.getData() < rhs.getData()
     }
     
     static func == (lhs: HeapNode<T>, rhs: HeapNode<T>) -> Bool {
-        return lhs.getKey() == rhs.getKey()
+        return lhs.getData() == rhs.getData()
+    }
+    
+    deinit {
+        print("Node with \(data) has been expired.")
     }
 }
+
+
+//struct HeapNode<T: Comparable>: Comparable {
+//    var data: T
+//    
+//    init(_ data: T) {
+//        self.data = data
+//    }
+//    
+//    func getData() -> T {
+//        return data
+//    }
+//    
+//    mutating func setData(_ data: T) {
+//        self.data = data
+//    }
+//    
+//    static func < (lhs: HeapNode<T>, rhs: HeapNode<T>) -> Bool {
+//        return lhs.getData() < rhs.getData()
+//    }
+//    
+//    static func == (lhs: HeapNode<T>, rhs: HeapNode<T>) -> Bool {
+//        return lhs.getData() == rhs.getData()
+//    }
+//}

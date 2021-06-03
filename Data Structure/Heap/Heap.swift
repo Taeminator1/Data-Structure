@@ -10,7 +10,7 @@ import Foundation
 class Heap<Element: Comparable> {
     var hNodes: [HeapNode<Element>] = []
     var isMaxHeap: Bool
-    var count: Int = 0      // Heap의 크기
+    var count: Int = 0      // hNodes의 원소의 개수
     
     init(isMaxHeap: Bool = true) {
         self.isMaxHeap = isMaxHeap
@@ -35,7 +35,7 @@ extension Heap {
         return hNodes[(index - 1) / 2]
     }
     
-    func getLeft(at index: Int) -> HeapNode<Element>? {
+    func getLeftChild(at index: Int) -> HeapNode<Element>? {
         guard index >= 0 && index * 2 + 1 < count else {
             print("Index out of range")
             return nil
@@ -43,7 +43,7 @@ extension Heap {
         return hNodes[index * 2 + 1]
     }
     
-    func getRight(at index: Int) -> HeapNode<Element>? {
+    func getRightChild(at index: Int) -> HeapNode<Element>? {
         guard index >= 0 && index * 2 + 2 < count else {
             print("Index out of range")
             return nil
@@ -59,26 +59,26 @@ extension Heap {
     
     func displayElements() {
         hNodes.forEach {
-            print($0.getKey())
+            print($0.getData())
         }
     }
 }
 
 extension Heap {
-    func insert(key: Element) {
+    func insert(data: Element) {
         var index = count
-        hNodes.append(HeapNode(key))
-        count += 1              // 위치 중요
+        hNodes.append(HeapNode(data))           // hNodes의 자리만 늘리기 위한 목적
+        count += 1
         
-//        while index > 0 && key > getParent(at: index)!.getKey() {
-//        while index > 0 && key < getParent(at: index)!.getKey() {
-        while index > 0 && isLhsBigger(lhs: key, rhs: getParent(at: index)!.getKey(), isSameOK: false) {
-            
-            hNodes[index].setKey(hNodes[(index - 1) / 2].getKey())
-//            hNodes[index] = hNodes[(index - 1) / 2]         // 클래스이기 때문에 참조하는 식으로 하면 안 됨
+//        while index > 0 && data > getParent(at: index)!.getData() {
+//        while index > 0 && data < getParent(at: index)!.getData() {
+        while index > 0 && isLhsBigger(lhs: data, rhs: getParent(at: index)!.getData(), isSameOK: false) {
+            hNodes[index].setData(hNodes[(index - 1) / 2].getData())
+//            hNodes[index] = hNodes[(index - 1) / 2]         // HeapNode가 클래스이기 때문에 참조하는 식으로 하면 안 됨,
+//                                                            // HeapNode가 구조체이면 가능
             index = (index - 1) / 2
         }
-        hNodes[index].setKey(key)
+        hNodes[index].setData(data)
     }
     
     @discardableResult func remove(at index: Int = 0) -> HeapNode<Element>? {
@@ -94,9 +94,9 @@ extension Heap {
         var pIndex: Int = index             // parent index
         var cIndex: Int = pIndex * 2 + 1    // child index
         while cIndex < count {
-//            if cIndex < count - 1 && getLeft(at: pIndex)! < getRight(at: pIndex)! {
-//            if cIndex < count - 1 && getLeft(at: pIndex)! > getRight(at: pIndex)! {
-            if cIndex < count - 1 && isLhsBigger(lhs: getRight(at: pIndex)!, rhs: getLeft(at: pIndex)!, isSameOK: false) {
+//            if cIndex < count - 1 && getLeftChild(at: pIndex)! < getRightChild(at: pIndex)! {
+//            if cIndex < count - 1 && getLeftChild(at: pIndex)! > getRightChild(at: pIndex)! {
+            if cIndex < count - 1 && isLhsBigger(lhs: getRightChild(at: pIndex)!, rhs: getLeftChild(at: pIndex)!, isSameOK: false) {
                 cIndex += 1
             }
 //            if lastHeapNode >= hNodes[cIndex] { break }
