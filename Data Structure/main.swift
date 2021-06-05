@@ -101,43 +101,44 @@ print("Hello, World!")
 //}
 
 // MARK: - Heap Test
-print("<Heap Test>")
-var heap: Heap = Heap<Int>(handler: <)
-heap.insert(data: 32)
-heap.insert(data: 4)
-heap.insert(data: 35)
-heap.insert(data: 24)
-heap.insert(data: 51)
-heap.insert(data: 17)
-heap.insert(data: 53)
-heap.displayElements()
-print("")
-
-heap.remove(at: 1)
-heap.displayElements()
-print("")
-
-heap.remove()
-heap.displayElements()
-print("")
-
-heap.remove()
-heap.displayElements()
-print("")
-
-heap.remove()
-heap.displayElements()
-print("")
-
-heap.remove()
-heap.displayElements()
-print("")
-
-heap.remove()
-heap.displayElements()
-print("")
-
-
+//print("<Heap Test>")
+//var maxHeap: Heap = Heap<Int>(handler: >)               // 최대 힙
+//var minHeap: Heap = Heap<Int>(handler: >)               // 최소 힙
+//var someHeap: Heap = Heap<Int>(handler: { abs($0.getData()) < abs($1.getData()) })      // 기타 힙
+//var heap: Heap = Heap<Int>(handler: { abs($0.getData()) < abs($1.getData()) })
+//heap.insert(data: -32)
+//heap.insert(data: 4)
+//heap.insert(data: 35)
+//heap.insert(data: 24)
+//heap.insert(data: -51)
+//heap.insert(data: -17)
+//heap.insert(data: 53)
+//heap.displayElements()
+//print("")
+//
+//heap.remove(at: 1)
+//heap.displayElements()
+//print("")
+//
+//heap.remove()
+//heap.displayElements()
+//print("")
+//
+//heap.remove()
+//heap.displayElements()
+//print("")
+//
+//heap.remove()
+//heap.displayElements()
+//print("")
+//
+//heap.remove()
+//heap.displayElements()
+//print("")
+//
+//heap.remove()
+//heap.displayElements()
+//print("")
 
 // MARK: - Priority Queue Test
 print("<Priority Test>")
@@ -154,7 +155,10 @@ priorityQueue.insert(data: "[pbo")
 priorityQueue.displayElements()
 print("")
 
-priorityQueue.pop()
+print("pop: \(priorityQueue.pop()!.getData())")
 priorityQueue.displayElements()
+print("")
 
-priorityQueue.remove()
+print("pop: \(priorityQueue.pop()!.getData())")
+priorityQueue.displayElements()
+print("")

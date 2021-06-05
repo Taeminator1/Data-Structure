@@ -8,11 +8,12 @@
 import Foundation
 
 class Heap<Element: Comparable> {
+    typealias HandlerType = (HeapNode<Element>, HeapNode<Element>) -> Bool
     var hNodes: [HeapNode<Element>] = []
     var count: Int = 0      // hNodes의 원소의 개수
-    let handler: ((HeapNode<Element>, HeapNode<Element>) -> Bool)
+    let handler: HandlerType
     
-    init(handler: @escaping ((HeapNode<Element>, HeapNode<Element>) -> Bool) = { $0 > $1 }) {
+    init(handler: @escaping HandlerType = { $0 > $1 }) {
         self.handler = handler
     }
 }
@@ -50,8 +51,9 @@ extension Heap {
     
     func displayElements() {
         hNodes.forEach {
-            print($0.getData())
+            print($0.getData(), terminator: " ")
         }
+        print("")
     }
 }
 
