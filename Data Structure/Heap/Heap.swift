@@ -49,6 +49,10 @@ extension Heap {
         return count == 0 ? true : false
     }
     
+    func getCount() -> Int {
+        return count
+    }
+    
     func displayElements() {
         hNodes.forEach {
             print($0.getData(), terminator: " ")
@@ -89,7 +93,7 @@ extension Heap {
                 cIndex += 1
             }
             
-            if lastHeapNode == hNodes[cIndex] && handler(lastHeapNode, hNodes[cIndex]) { break }
+            if lastHeapNode == hNodes[cIndex] || handler(lastHeapNode, hNodes[cIndex]) { break }
             
             hNodes[pIndex] = hNodes[cIndex]
             pIndex = cIndex
@@ -97,11 +101,5 @@ extension Heap {
         }
         hNodes[pIndex] = lastHeapNode
         return result
-    }
-}
-
-extension Heap {
-    func ex() {
-        print(handler(hNodes[0], hNodes[1]))
     }
 }

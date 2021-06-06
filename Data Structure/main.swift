@@ -7,7 +7,7 @@
 
 import Foundation
 
-print("Hello, World!")
+//print("Hello, World!")
 
 // MARK: - Linked List Test
 //print("<Linked List Test>")
@@ -141,7 +141,7 @@ print("Hello, World!")
 //print("")
 
 // MARK: - Priority Queue Test
-print("<Priority Test>")
+//print("<Priority Test>")
 var priorityQueue: PriorityQueue = PriorityQueue<String>(handler: <)
 priorityQueue.insert(data: "asg")
 priorityQueue.insert(data: "sagde")
@@ -162,3 +162,4 @@ print("")
 print("pop: \(priorityQueue.pop()!.getData())")
 priorityQueue.displayElements()
 print("")
+
