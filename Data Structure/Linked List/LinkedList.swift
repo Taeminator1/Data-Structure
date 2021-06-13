@@ -33,7 +33,7 @@ extension LinkedList {
             
             var node: Node<Element>? = first
             for _ in 0 ..< index {              // index의 값만큼 다음 Node로 이동
-                node = node!.getNext()!
+                node = node!.next!
             }
 
             return node
@@ -45,7 +45,7 @@ extension LinkedList {
                 return
             }
             
-            newValue!.setNext(self[index + 1])  // 대상 Node의 다음 Node 설정
+            newValue!.next = self[index + 1]    // 대상 Node의 다음 Node 설정
             
             if index == 0 {                     // 첫 번째 원소를 수정하는 경우
                 self.first = newValue           // 대상 Node를 first로 설정
@@ -56,9 +56,9 @@ extension LinkedList {
                 }
                 var node: Node<Element> = first!
                 for _ in 0 ..< index - 1 {
-                    node = node.getNext()!
+                    node = node.next!
                 }
-                node.setNext(newValue)
+                node.next = newValue
             }
         }
     }
@@ -74,7 +74,7 @@ extension LinkedList {
             first = node
         }
         else {
-            last?.setNext(node)
+            last?.next = node
         }
         last = node
         count += 1

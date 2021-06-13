@@ -16,21 +16,17 @@ class Node<T> {
 //        print("Node with \(data) has been created.")
     }
     
-//    init(data: T, link: Node?) {
-//        self.data = data
-//        self.next = link
+    init(_ data: T, next: Node?) {
+        self.data = data
+        self.next = next
 //        print("Node with \(data) has been created.")
-//    }
-    
-    func getNext() -> Node<T>? {
-        return next
     }
     
-    func setNext(_ node: Node<T>?) {
-        self.next = node
+    func getData() -> T {
+        return data
     }
     
     deinit {
-        print("Node with \(data) has been expired.")
+//        print("Node with \(data) has been expired.")
     }
 }

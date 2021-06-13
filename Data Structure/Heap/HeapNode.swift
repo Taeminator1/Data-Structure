@@ -15,20 +15,12 @@ class HeapNode<T: Comparable>: Comparable {
 //        print("Node with \(data) has been created.")
     }
     
-    func getData() -> T {
-        return data
-    }
-    
-    func setData(_ data: T) {
-        self.data = data
-    }
-    
     static func < (lhs: HeapNode<T>, rhs: HeapNode<T>) -> Bool {
-        return lhs.getData() < rhs.getData()
+        return lhs.data < rhs.data
     }
     
     static func == (lhs: HeapNode<T>, rhs: HeapNode<T>) -> Bool {
-        return lhs.getData() == rhs.getData()
+        return lhs.data == rhs.data
     }
     
     deinit {

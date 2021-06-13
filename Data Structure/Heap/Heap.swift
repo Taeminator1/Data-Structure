@@ -55,7 +55,7 @@ extension Heap {
     
     func displayElements() {
         hNodes.forEach {
-            print($0.getData(), terminator: " ")
+            print($0.data, terminator: " ")
         }
         print("")
     }
@@ -68,12 +68,13 @@ extension Heap {
         count += 1
         
         while index > 0 && handler(HeapNode(data), getParent(at: index)!){
-            hNodes[index].setData(hNodes[(index - 1) / 2].getData())
+            hNodes[index].data = hNodes[(index - 1) / 2].data
 //            hNodes[index] = hNodes[(index - 1) / 2]         // HeapNode가 클래스이기 때문에 참조하는 식으로 하면 안 됨,
 //                                                            // HeapNode가 구조체이면 가능
             index = (index - 1) / 2
         }
-        hNodes[index].setData(data)
+        hNodes[index].data = data
+        
     }
     
     @discardableResult func remove(at index: Int = 0) -> HeapNode<Element>? {

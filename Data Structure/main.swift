@@ -19,14 +19,13 @@ import Foundation
 //print(linkedList[1]!.data)                                      // 2
 //print(linkedList[2]!.data)                                      // 3
 //
-//linkedList[0] = Node(8)
-//linkedList[1] = Node(4)                                         // Node with 4 has been created.
-//                                                                // Node with 2 has been expired.
-//linkedList[2] = Node(5)
+//linkedList[0] = Node(8)                                         // Node with 1 has been expired.
+//linkedList[1] = Node(4)                                         // Node with 2 has been created.
+//linkedList[2] = Node(5)                                         // Node with 5 has been expired.
 //
-//print(linkedList[0]!.data)                                      // 1
+//print(linkedList[0]!.data)                                      // 8
 //print(linkedList[1]!.data)                                      // 4
-//print(linkedList[2]!.data)                                      // 3
+//print(linkedList[2]!.data)                                      // 5
 //
 //print("")
 
@@ -88,14 +87,28 @@ import Foundation
 //var tmpDate: Date = Date()
 //DispatchQueue.global().sync {
 //    tmpDate = Date()
-//    for i in 0 ..< number {
+//    for i in 0 ..< 10 {
 //        arr.insert(i, at: arr.count)
 //    }
 //    print("insert 소요 시간(Array): \(String(format: "%.3f", Date().timeIntervalSince(tmpDate)))")
 //
 //    tmpDate = Date()
-//    for i in 0 ..< number {
+//    for i in 0 ..< 10 {
 //        list.insert(Node(i), at: list.count)
+//    }
+//    print("insert 소요 시간(List) : \(String(format: "%.3f", Date().timeIntervalSince(tmpDate)))")
+//}
+//
+//DispatchQueue.global().sync {
+//    tmpDate = Date()
+//    for i in 0 ..< number {
+//        arr.insert(i, at: 10)
+//    }
+//    print("insert 소요 시간(Array): \(String(format: "%.3f", Date().timeIntervalSince(tmpDate)))")
+//
+//    tmpDate = Date()
+//    for i in 0 ..< number {
+//        list.insert(Node(i), at: 10)
 //    }
 //    print("insert 소요 시간(List) : \(String(format: "%.3f", Date().timeIntervalSince(tmpDate)))")
 //}
@@ -104,8 +117,8 @@ import Foundation
 //print("<Heap Test>")
 //var maxHeap: Heap = Heap<Int>(handler: >)               // 최대 힙
 //var minHeap: Heap = Heap<Int>(handler: >)               // 최소 힙
-//var someHeap: Heap = Heap<Int>(handler: { abs($0.getData()) < abs($1.getData()) })      // 기타 힙
-//var heap: Heap = Heap<Int>(handler: { abs($0.getData()) < abs($1.getData()) })
+//var someHeap: Heap = Heap<Int>(handler: { abs($0.data) < abs($1.data) })      // 기타 힙
+//var heap: Heap = Heap<Int>(handler: { abs($0.data) < abs($1.data) })
 //heap.insert(data: -32)
 //heap.insert(data: 4)
 //heap.insert(data: 35)
@@ -113,53 +126,53 @@ import Foundation
 //heap.insert(data: -51)
 //heap.insert(data: -17)
 //heap.insert(data: 53)
-//heap.displayElements()
+//heap.displayElements()          // 4 24 -17 -32 -51 35 53
 //print("")
 //
 //heap.remove(at: 1)
-//heap.displayElements()
+//heap.displayElements()          // 4 -32 -17 53 -51 35
 //print("")
 //
 //heap.remove()
-//heap.displayElements()
+//heap.displayElements()          // -17 -32 35 53 -51
 //print("")
 //
 //heap.remove()
-//heap.displayElements()
+//heap.displayElements()          // -32 -51 35 53
 //print("")
 //
 //heap.remove()
-//heap.displayElements()
+//heap.displayElements()          // 35 -51 53
 //print("")
 //
 //heap.remove()
-//heap.displayElements()
+//heap.displayElements()          // -51 53
 //print("")
 //
 //heap.remove()
-//heap.displayElements()
+//heap.displayElements()          // 53
 //print("")
 
 // MARK: - Priority Queue Test
 //print("<Priority Test>")
-var priorityQueue: PriorityQueue = PriorityQueue<String>(handler: <)
-priorityQueue.insert(data: "asg")
-priorityQueue.insert(data: "sagde")
-priorityQueue.insert(data: "ggfj")
-priorityQueue.insert(data: "cxzbr")
-priorityQueue.insert(data: "yer")
-priorityQueue.insert(data: "1hv")
-priorityQueue.insert(data: "dci")
-priorityQueue.insert(data: "32d")
-priorityQueue.insert(data: "[pbo")
-priorityQueue.displayElements()
-print("")
-
-print("pop: \(priorityQueue.pop()!.getData())")
-priorityQueue.displayElements()
-print("")
-
-print("pop: \(priorityQueue.pop()!.getData())")
-priorityQueue.displayElements()
-print("")
+//var priorityQueue: PriorityQueue = PriorityQueue<String>(handler: <)
+//priorityQueue.insert(data: "asg")
+//priorityQueue.insert(data: "sagde")
+//priorityQueue.insert(data: "ggfj")
+//priorityQueue.insert(data: "cxzbr")
+//priorityQueue.insert(data: "yer")
+//priorityQueue.insert(data: "1hv")
+//priorityQueue.insert(data: "dci")
+//priorityQueue.insert(data: "32d")
+//priorityQueue.insert(data: "[pbo")
+//priorityQueue.displayElements()                 // 1hv 32d asg [pbo yer ggfj dci sagde cxzbr
+//print("")
+//
+//print("pop: \(priorityQueue.pop()!.data)")      // pop: 1hv
+//priorityQueue.displayElements()                 // 32d [pbo asg cxzbr yer ggfj dci sagde
+//print("")
+//
+//print("pop: \(priorityQueue.pop()!.data)")      // pop: 32d
+//priorityQueue.displayElements()                 // [pbo cxzbr asg sagde yer ggfj dci
+//print("")
 

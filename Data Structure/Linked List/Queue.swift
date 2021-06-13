@@ -14,7 +14,7 @@ class Queue<Element>: LinkedList<Element> {
         }
         
         let result: Node? = first
-        first = first?.getNext()
+        first = first?.next
         count -= 1
         
         return result
