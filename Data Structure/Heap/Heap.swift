@@ -13,6 +13,10 @@ class Heap<Element: Comparable> {
     var count: Int = 0      // hNodes의 원소의 개수
     let handler: HandlerType
     
+    var isEmpty: Bool {
+        return count == 0
+    }
+    
     init(handler: @escaping HandlerType = { $0 > $1 }) {
         self.handler = handler
     }
@@ -45,10 +49,6 @@ extension Heap {
 }
 
 extension Heap {
-    func isEmpty() -> Bool {
-        return count == 0 ? true : false
-    }
-    
     func getCount() -> Int {
         return count
     }

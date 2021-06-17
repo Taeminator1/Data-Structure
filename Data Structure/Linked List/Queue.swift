@@ -9,7 +9,7 @@ import Foundation
 
 class Queue<Element>: LinkedList<Element> {
     @discardableResult func pop() -> Node<Element>? {
-        guard !isEmpty() else {
+        guard !isEmpty else {
             return nil
         }
         

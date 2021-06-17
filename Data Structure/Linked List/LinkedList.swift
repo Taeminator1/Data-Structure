@@ -12,6 +12,10 @@ class LinkedList<Element> {
     var last: Node<Element>?
     var count: Int              // 원소의 갯수 저장
     
+    var isEmpty: Bool {
+        return count == 0
+    }
+    
     init() {
         self.count = 0
     }
@@ -65,12 +69,8 @@ extension LinkedList {
 }
 
 extension LinkedList {
-    func isEmpty() -> Bool {
-        return count == 0 ? true : false
-    }
-    
     func append(_ node: Node<Element>) {
-        if isEmpty() {
+        if isEmpty {
             first = node
         }
         else {
