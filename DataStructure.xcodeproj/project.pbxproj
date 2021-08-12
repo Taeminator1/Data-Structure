@@ -33,7 +33,7 @@
 		3411605A26611E5900AB00DC /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		3416CC302665D43500716A68 /* HeapNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeapNode.swift; sourceTree = "<group>"; };
 		3416CC4426661A6000716A68 /* PriorityQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriorityQueue.swift; sourceTree = "<group>"; };
-		3464C3C2265FFBC0007F569D /* Data Structure */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Data Structure"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3464C3C2265FFBC0007F569D /* DataStructure */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = DataStructure; sourceTree = BUILT_PRODUCTS_DIR; };
 		3464C3C5265FFBC0007F569D /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		3464C3CD265FFD01007F569D /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		3464C3D0265FFD09007F569D /* LinkedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedList.swift; sourceTree = "<group>"; };
@@ -52,7 +52,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3416CC282665D3D700716A68 /* Linked List */ = {
+		3416CC282665D3D700716A68 /* LinkedList */ = {
 			isa = PBXGroup;
 			children = (
 				3464C3CD265FFD01007F569D /* Node.swift */,
@@ -60,7 +60,7 @@
 				3411605A26611E5900AB00DC /* Queue.swift */,
 				34A331D62664E48B0040E94F /* List.swift */,
 			);
-			path = "Linked List";
+			path = LinkedList;
 			sourceTree = "<group>";
 		};
 		3416CC292665D3ED00716A68 /* Heap */ = {
@@ -76,7 +76,7 @@
 		3464C3B9265FFBC0007F569D = {
 			isa = PBXGroup;
 			children = (
-				3464C3C4265FFBC0007F569D /* Data Structure */,
+				3464C3C4265FFBC0007F569D /* DataStructure */,
 				3464C3C3265FFBC0007F569D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -84,27 +84,27 @@
 		3464C3C3265FFBC0007F569D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3464C3C2265FFBC0007F569D /* Data Structure */,
+				3464C3C2265FFBC0007F569D /* DataStructure */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3464C3C4265FFBC0007F569D /* Data Structure */ = {
+		3464C3C4265FFBC0007F569D /* DataStructure */ = {
 			isa = PBXGroup;
 			children = (
 				3464C3C5265FFBC0007F569D /* main.swift */,
-				3416CC282665D3D700716A68 /* Linked List */,
+				3416CC282665D3D700716A68 /* LinkedList */,
 				3416CC292665D3ED00716A68 /* Heap */,
 			);
-			path = "Data Structure";
+			path = DataStructure;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3464C3C1265FFBC0007F569D /* Data Structure */ = {
+		3464C3C1265FFBC0007F569D /* DataStructure */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3464C3C9265FFBC0007F569D /* Build configuration list for PBXNativeTarget "Data Structure" */;
+			buildConfigurationList = 3464C3C9265FFBC0007F569D /* Build configuration list for PBXNativeTarget "DataStructure" */;
 			buildPhases = (
 				3464C3BE265FFBC0007F569D /* Sources */,
 				3464C3BF265FFBC0007F569D /* Frameworks */,
@@ -114,9 +114,9 @@
 			);
 			dependencies = (
 			);
-			name = "Data Structure";
+			name = DataStructure;
 			productName = "Data Structure";
-			productReference = 3464C3C2265FFBC0007F569D /* Data Structure */;
+			productReference = 3464C3C2265FFBC0007F569D /* DataStructure */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -133,7 +133,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 3464C3BD265FFBC0007F569D /* Build configuration list for PBXProject "Data Structure" */;
+			buildConfigurationList = 3464C3BD265FFBC0007F569D /* Build configuration list for PBXProject "DataStructure" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -146,7 +146,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3464C3C1265FFBC0007F569D /* Data Structure */,
+				3464C3C1265FFBC0007F569D /* DataStructure */,
 			);
 		};
 /* End PBXProject section */
@@ -310,7 +310,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3464C3BD265FFBC0007F569D /* Build configuration list for PBXProject "Data Structure" */ = {
+		3464C3BD265FFBC0007F569D /* Build configuration list for PBXProject "DataStructure" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3464C3C7265FFBC0007F569D /* Debug */,
@@ -319,7 +319,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3464C3C9265FFBC0007F569D /* Build configuration list for PBXNativeTarget "Data Structure" */ = {
+		3464C3C9265FFBC0007F569D /* Build configuration list for PBXNativeTarget "DataStructure" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3464C3CA265FFBC0007F569D /* Debug */,
