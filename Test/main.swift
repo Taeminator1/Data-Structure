@@ -1,11 +1,12 @@
 //
 //  main.swift
-//  Chapter 05
+//  Test
 //
 //  Created by 윤태민 on 5/22/21.
 //
 
 import Foundation
+import DataStructure
 
 //print("Hello, World!")
 
@@ -116,7 +117,7 @@ import Foundation
 // MARK: - Heap Test
 //print("<Heap Test>")
 //var maxHeap: Heap = Heap<Int>(handler: >)               // 최대 힙
-//var minHeap: Heap = Heap<Int>(handler: >)               // 최소 힙
+//var minHeap: Heap = Heap<Int>(handler: <)               // 최소 힙
 //var someHeap: Heap = Heap<Int>(handler: { abs($0.data) < abs($1.data) })      // 기타 힙
 //var heap: Heap = Heap<Int>(handler: { abs($0.data) < abs($1.data) })
 //heap.insert(data: -32)
@@ -154,25 +155,25 @@ import Foundation
 //print("")
 
 // MARK: - Priority Queue Test
-print("<Priority Test>")
-var priorityQueue: PriorityQueue = PriorityQueue<String>(handler: <)
-priorityQueue.insert(data: "asg")
-priorityQueue.insert(data: "sagde")
-priorityQueue.insert(data: "ggfj")
-priorityQueue.insert(data: "cxzbr")
-priorityQueue.insert(data: "yer")
-priorityQueue.insert(data: "1hv")
-priorityQueue.insert(data: "dci")
-priorityQueue.insert(data: "32d")
-priorityQueue.insert(data: "[pbo")
-priorityQueue.displayElements()                 // 1hv 32d asg [pbo yer ggfj dci sagde cxzbr
-print("")
-
-print("pop: \(priorityQueue.pop()!.data)")      // pop: 1hv
-priorityQueue.displayElements()                 // 32d [pbo asg cxzbr yer ggfj dci sagde
-print("")
-
-print("pop: \(priorityQueue.pop()!.data)")      // pop: 32d
-priorityQueue.displayElements()                 // [pbo cxzbr asg sagde yer ggfj dci
-print("")
+//print("<Priority Test>")
+//var priorityQueue: PriorityQueue = PriorityQueue<String>(handler: <)
+//priorityQueue.insert(data: "asg")
+//priorityQueue.insert(data: "sagde")
+//priorityQueue.insert(data: "ggfj")
+//priorityQueue.insert(data: "cxzbr")
+//priorityQueue.insert(data: "yer")
+//priorityQueue.insert(data: "1hv")
+//priorityQueue.insert(data: "dci")
+//priorityQueue.insert(data: "32d")
+//priorityQueue.insert(data: "[pbo")
+//priorityQueue.displayElements()                 // 1hv 32d asg [pbo yer ggfj dci sagde cxzbr
+//print("")
+//
+//print("pop: \(priorityQueue.pop()!.data)")      // pop: 1hv
+//priorityQueue.displayElements()                 // 32d [pbo asg cxzbr yer ggfj dci sagde
+//print("")
+//
+//print("pop: \(priorityQueue.pop()!.data)")      // pop: 32d
+//priorityQueue.displayElements()                 // [pbo cxzbr asg sagde yer ggfj dci
+//print("")
 

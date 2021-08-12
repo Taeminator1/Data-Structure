@@ -1,14 +1,14 @@
 //
 //  PriorityQueue.swift
-//  Data Structure
+//  DataStructure
 //
 //  Created by 윤태민 on 6/1/21.
 //
 
 import Foundation
 
-class PriorityQueue<Element: Comparable>: Heap<Element> {
-    @discardableResult func pop() -> HeapNode<Element>? {
+public class PriorityQueue<Element: Comparable>: Heap<Element> {
+    @discardableResult public func pop() -> HeapNode<Element>? {
         return remove()
     }
 }

@@ -1,26 +1,26 @@
 //
 //  LinkedList.swift
-//  Chapter 05
+//  DataStructure
 //
 //  Created by 윤태민 on 5/27/21.
 //
 
 import Foundation
 
-class LinkedList<Element> {
+public class LinkedList<Element> {
     var first: Node<Element>?
     var last: Node<Element>?
-    var count: Int              // 원소의 갯수 저장
+    public var count: Int              // 원소의 갯수 저장
     
-    var isEmpty: Bool {
+    public var isEmpty: Bool {
         return count == 0
     }
     
-    init() {
+    public init() {
         self.count = 0
     }
     
-    init(_ node: Node<Element>) {
+    public init(_ node: Node<Element>) {
         self.first = node
         self.last = node
         self.count = 1
@@ -28,7 +28,7 @@ class LinkedList<Element> {
 }
 
 extension LinkedList {
-    subscript(_ index: Int) -> Node<Element>? {
+    public subscript(_ index: Int) -> Node<Element>? {
         get {
             guard index >= 0 && index < count else {
                 print("Index out of range")
@@ -69,7 +69,7 @@ extension LinkedList {
 }
 
 extension LinkedList {
-    func append(_ node: Node<Element>) {
+    public func append(_ node: Node<Element>) {
         if isEmpty {
             first = node
         }

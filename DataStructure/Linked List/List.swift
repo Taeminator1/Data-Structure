@@ -1,14 +1,14 @@
 //
 //  List.swift
-//  Data Structure
+//  DataStructure
 //
 //  Created by 윤태민 on 5/31/21.
 //
 
 import Foundation
 
-class List<Element>: LinkedList<Element> {
-    func insert(_ node: Node<Element>, at index: Int) {
+public class List<Element>: LinkedList<Element> {
+    public func insert(_ node: Node<Element>, at index: Int) {
         guard index >= 0 && index <= count else {
             print("Index out of range")
             return
@@ -33,7 +33,7 @@ class List<Element>: LinkedList<Element> {
 }
 
 extension List {
-    func remove(at index: Int) -> Node<Element>? {
+    public func remove(at index: Int) -> Node<Element>? {
         guard index >= 0 && index < self.count else {
             print("Index out of range")
             return nil

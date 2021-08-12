@@ -1,23 +1,23 @@
 //
 //  Heap.swift
-//  Data Structure
+//  DataStructure
 //
 //  Created by 윤태민 on 5/31/21.
 //
 
 import Foundation
 
-class Heap<Element: Comparable> {
-    typealias HandlerType = (HeapNode<Element>, HeapNode<Element>) -> Bool
+public class Heap<Element: Comparable> {
+    public typealias HandlerType = (HeapNode<Element>, HeapNode<Element>) -> Bool
     var hNodes: [HeapNode<Element>] = []
-    var count: Int = 0      // hNodes의 원소의 개수
+    public var count: Int = 0      // hNodes의 원소의 개수
     let handler: HandlerType
     
-    var isEmpty: Bool {
+    public var isEmpty: Bool {
         return count == 0
     }
     
-    init(handler: @escaping HandlerType = { $0 > $1 }) {
+    public init(handler: @escaping HandlerType = { $0 > $1 }) {
         self.handler = handler
     }
 }
@@ -49,11 +49,11 @@ extension Heap {
 }
 
 extension Heap {
-    func getCount() -> Int {
+    public func getCount() -> Int {
         return count
     }
     
-    func displayElements() {
+    public func displayElements() {
         hNodes.forEach {
             print($0.data, terminator: " ")
         }
@@ -62,7 +62,7 @@ extension Heap {
 }
 
 extension Heap {
-    func insert(data: Element) {
+    public func insert(data: Element) {
         var index = count
         hNodes.append(HeapNode(data))           // hNodes의 자리만 늘리기 위한 목적
         count += 1
@@ -77,7 +77,7 @@ extension Heap {
         
     }
     
-    @discardableResult func remove(at index: Int = 0) -> HeapNode<Element>? {
+    @discardableResult public func remove(at index: Int = 0) -> HeapNode<Element>? {
         guard index >= 0 && index < count else {
             return nil
         }

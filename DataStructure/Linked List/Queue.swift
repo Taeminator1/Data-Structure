@@ -1,14 +1,14 @@
 //
 //  Queue.swift
-//  Data Structure
+//  DataStructure
 //
 //  Created by 윤태민 on 5/28/21.
 //
 
 import Foundation
 
-class Queue<Element>: LinkedList<Element> {
-    @discardableResult func pop() -> Node<Element>? {
+public class Queue<Element>: LinkedList<Element> {
+    @discardableResult public func pop() -> Node<Element>? {
         guard !isEmpty else {
             return nil
         }
