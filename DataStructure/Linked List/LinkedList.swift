@@ -7,37 +7,55 @@
 
 import Foundation
 
+/// This type consist of nodes to indicate their locaitons and the number of elements of the LinkedList.
 public class LinkedList<Element> {
     var first: Node<Element>?
     var last: Node<Element>?
-    public var count: Int              // 원소의 갯수 저장
+    var tmpCount: Int               // count를 임의로 수정하지 못하게 임시 저장하는 변수
     
+    /// The number of elements in the collection.
+    public var count: Int {
+        return tmpCount
+    }
+    
+    /// A Boolean value indicating whether the collection is empty.
     public var isEmpty: Bool {
-        return count == 0
+        return tmpCount == 0
     }
     
+    /// Create a new instace with making the number of elements 0.
     public init() {
-        self.count = 0
+        self.tmpCount = 0
     }
     
+    /// Create a new instance from the given node.
+    /// - Parameter node: The first element of the collection.
     public init(_ node: Node<Element>) {
         self.first = node
         self.last = node
-        self.count = 1
+        self.tmpCount = 1
     }
 }
 
 extension LinkedList {
-    public subscript(_ index: Int) -> Node<Element>? {
+    
+    /// You can access or set the other elements using subscript like Array.
+    ///
+    /// As in the following example:
+    ///
+    ///     var numbers = LinkedList<Int>(Node(4))
+    ///
+    ///     print(numbers[0].data)
+    ///     // prints "4"
+    public subscript(_ index: Int) -> Node<Element> {
         get {
             guard index >= 0 && index < count else {
-                print("Index out of range")
-                return nil
+                fatalError("Index out of range")
             }
             
-            var node: Node<Element>? = first
+            var node: Node<Element> = first!
             for _ in 0 ..< index {              // index의 값만큼 다음 Node로 이동
-                node = node!.next!
+                node = node.next!
             }
 
             return node
@@ -45,11 +63,12 @@ extension LinkedList {
 
         set {
             guard index >= 0 && index < count else {
-                print("Index out of range")
-                return
+                fatalError("Index out of range")
             }
             
-            newValue!.next = self[index + 1]    // 대상 Node의 다음 Node 설정
+            if index != count - 1 {             // index가 마지막 원소가 아닐 때,
+                newValue.next = self[index + 1]
+            }
             
             if index == 0 {                     // 첫 번째 원소를 수정하는 경우
                 self.first = newValue           // 대상 Node를 first로 설정
@@ -69,14 +88,31 @@ extension LinkedList {
 }
 
 extension LinkedList {
-    public func append(_ node: Node<Element>) {
+    /// Adds a new node to the end of the collection.
+    ///
+    /// It doesn't need additional storage for a node. It just change the properties of the type.
+    /// The following example adds a new node to a collection:
+    ///
+    ///     var numbers = LinkedList<Int>()
+    ///     numbers.append(Node(0))
+    ///     numbers.append(Node(1))
+    ///     numbers.append(Node(2))
+    ///
+    ///     print(numbers2[2].data)
+    ///     // prints "2"
+    ///
+    /// - Parameter newNode: The new node to append to the collection.
+    /// 
+    /// - Complexity: O(1)
+    public func append(_ newNode: Node<Element>) {
         if isEmpty {
-            first = node
+            first = newNode
         }
         else {
-            last?.next = node
+            last?.next = newNode
         }
-        last = node
-        count += 1
+        last = newNode
+        tmpCount += 1
     }
 }
+
