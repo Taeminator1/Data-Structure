@@ -11,17 +11,12 @@ import Foundation
 public class Heap<Element: Comparable> {
     public typealias HandlerType = (HeapNode<Element>, HeapNode<Element>) -> Bool
     var hNodes: [HeapNode<Element>] = []
-    var tmpCount: Int = 0               // count를 임의로 수정하지 못하게 임시 저장하는 변수
+    public var count: Int { hNodes.count }              // The number of elements in the collection.
     let handler: HandlerType
-    
-    /// The number of elements in the collection.
-    public var count: Int {
-        return tmpCount
-    }
     
     /// A Boolean value indicating whether the collection is empty.
     public var isEmpty: Bool {
-        return tmpCount == 0
+        return count == 0
     }
     
     /// Sets a type of heap, as in the lollowing example:
@@ -99,7 +94,6 @@ extension Heap {
     public func insert(data: Element) {
         var index = count
         hNodes.append(HeapNode(data))           // hNodes의 자리만 늘리기 위한 목적
-        tmpCount += 1
         
         while index > 0 && handler(HeapNode(data), getParent(at: index)){
             hNodes[index].data = hNodes[(index - 1) / 2].data
@@ -131,10 +125,10 @@ extension Heap {
         }
         
         let result: HeapNode<Element> = hNodes[index]
-        tmpCount -= 1              // 위치 중요
-        if count == 0 { return result }         // 없이 만들 수 있을까??
         
         let lastHeapNode: HeapNode<Element> = hNodes.removeLast()
+        if hNodes.isEmpty { return result }
+        
         var pIndex: Int = index             // parent index
         var cIndex: Int = pIndex * 2 + 1    // child index
         while cIndex < count {

@@ -13,7 +13,7 @@ import DataStructure
 //linkedListTest()
 //queueTest()
 //listTest()
-//heapTest()
+heapTest()
 //priorityQueueTest()
 
 // MARK: - Linked List Test
@@ -152,32 +152,44 @@ func heapTest() {
     heap.insert(data: -51)
     heap.insert(data: -17)
     heap.insert(data: 53)
-    heap.displayElements()          // 4 24 -17 -32 -51 35 53
+    
+    print(heap.count)                       // 7
+    
+    heap.displayElements()                  // 4 24 -17 -32 -51 35 53
     print("")
     
     heap.remove(at: 1)
-    heap.displayElements()          // 4 -32 -17 53 -51 35
+    heap.displayElements()                  // 4 -32 -17 53 -51 35
     print("")
     
     heap.remove()
-    heap.displayElements()          // -17 -32 35 53 -51
+    heap.displayElements()                  // -17 -32 35 53 -51
     print("")
     
     heap.remove()
-    heap.displayElements()          // -32 -51 35 53
+    heap.displayElements()                  // -32 -51 35 53
     print("")
     
     heap.remove()
-    heap.displayElements()          // 35 -51 53
+    heap.displayElements()                  // 35 -51 53
     print("")
     
     heap.remove()
-    heap.displayElements()          // -51 53
+    heap.displayElements()                  // -51 53
     print("")
     
-    heap.remove()
-    heap.displayElements()          // 53
+    print(heap.remove()?.data ?? "")        // -51
+    heap.displayElements()                  // 53
+    print(heap.count)                       // 1
     print("")
+    
+    
+    print(heap.remove()?.data ?? "")        // 53
+    heap.displayElements()                  //
+    print(heap.count)                       // 0
+    print("")
+    
+    print(heap.remove()?.data ?? "")        //
 }
 
 
