@@ -13,7 +13,7 @@ import DataStructure
 //linkedListTest()
 //queueTest()
 //listTest()
-heapTest()
+//heapTest()
 //priorityQueueTest()
 
 // MARK: - Linked List Test
@@ -35,9 +35,11 @@ func linkedListTest() {
     print(linkedList[1].data)                                       // 4
     print(linkedList[2].data)                                       // 5
 
-    print(linkedList[0].next?.getData() ?? "")                      // Optional(4)
-    print(linkedList[1].next?.getData() ?? "")                      // Optional(5)
-    print(linkedList[2].next?.getData() ?? "")                      // nil
+    print(linkedList[0].next?.getData() ?? "")                      // 4    // Optional(4)
+    print(linkedList[1].next?.getData() ?? "")                      // 5    // Optional(5)
+    print(linkedList[2].next?.getData() ?? "")                      //      // nil
+    
+    print(linkedList.count)                                         // 3
 }
 
 // MARK: - Queue Test
@@ -63,21 +65,25 @@ func queueTest() {
     print(queue[1].data)                                            // 3
     print(queue[2].data)                                            // 4
 
-    print(queue.pop()?.data ?? "")                                  // Optional(2)
-    print(queue.pop()?.data ?? "")                                  // Optional(3)
-    print(queue.pop()?.data ?? "")                                  // Optional(4)
-    print(queue.pop()?.data ?? "")                                  // nil
+    print(queue.pop()?.data ?? "")                                  // 2    // Optional(2)
+    print(queue.pop()?.data ?? "")                                  // 3    // Optional(3)
+    print(queue.pop()?.data ?? "")                                  // 4    // Optional(4)
+    print(queue.pop()?.data ?? "")                                  //      // nil
+    
+    print(queue.count)                                              // 0
 }
 
 // MARK: - List Test
 func listTest() {
     print("<List Test>")
-    var list: List = List<Int>()
+    let list: List = List<Int>()
     list.insert(Node(0), at: 0)                                     // 빈 리스트에 원소 삽입
     
     list.insert(Node(1), at: 0)                                     // list의 가장 앞에 삽입
     list.insert(Node(2), at: 2)                                     // list의 가장 끝에 삽입
     list.insert(Node(3), at: 1)                                     // list의 중간에 삽입
+    
+    print(list.count)                                               // 4
     
     print(list[0].data)                                             // 1
     print(list[1].data)                                             // 3
@@ -99,38 +105,38 @@ func listTest() {
     
     tmpNode = nil                                                   // Node with 0 has been expired.
     
-    var arr: [Int] = []
-    list = List<Int>()
-    
-    let number: Int = 100000
-    var tmpDate: Date = Date()
-    DispatchQueue.global().sync {
-        tmpDate = Date()
-        for i in 0 ..< 10 {
-            arr.insert(i, at: arr.count)
-        }
-        print("insert 소요 시간(Array): \(String(format: "%.3f", Date().timeIntervalSince(tmpDate)))")
-    
-        tmpDate = Date()
-        for i in 0 ..< 10 {
-            list.insert(Node(i), at: list.count)
-        }
-        print("insert 소요 시간(List) : \(String(format: "%.3f", Date().timeIntervalSince(tmpDate)))")
-    }
-    
-    DispatchQueue.global().sync {
-        tmpDate = Date()
-        for i in 0 ..< number {
-            arr.insert(i, at: 10)
-        }
-        print("insert 소요 시간(Array): \(String(format: "%.3f", Date().timeIntervalSince(tmpDate)))")
-    
-        tmpDate = Date()
-        for i in 0 ..< number {
-            list.insert(Node(i), at: 10)
-        }
-        print("insert 소요 시간(List) : \(String(format: "%.3f", Date().timeIntervalSince(tmpDate)))")
-    }
+//    var arr: [Int] = []
+//    list = List<Int>()
+//
+//    let number: Int = 100000
+//    var tmpDate: Date = Date()
+//    DispatchQueue.global().sync {
+//        tmpDate = Date()
+//        for i in 0 ..< 10 {
+//            arr.insert(i, at: arr.count)
+//        }
+//        print("insert 소요 시간(Array): \(String(format: "%.3f", Date().timeIntervalSince(tmpDate)))")
+//
+//        tmpDate = Date()
+//        for i in 0 ..< 10 {
+//            list.insert(Node(i), at: list.count)
+//        }
+//        print("insert 소요 시간(List) : \(String(format: "%.3f", Date().timeIntervalSince(tmpDate)))")
+//    }
+//
+//    DispatchQueue.global().sync {
+//        tmpDate = Date()
+//        for i in 0 ..< number {
+//            arr.insert(i, at: 10)
+//        }
+//        print("insert 소요 시간(Array): \(String(format: "%.3f", Date().timeIntervalSince(tmpDate)))")
+//
+//        tmpDate = Date()
+//        for i in 0 ..< number {
+//            list.insert(Node(i), at: 10)
+//        }
+//        print("insert 소요 시간(List) : \(String(format: "%.3f", Date().timeIntervalSince(tmpDate)))")
+//    }
 }
 
 
@@ -178,18 +184,18 @@ func heapTest() {
     heap.displayElements()                  // -51 53
     print("")
     
-    print(heap.remove()?.data ?? "")        // -51
+    print(heap.remove()?.data ?? "")        // 51   // Optional(-51)
     heap.displayElements()                  // 53
     print(heap.count)                       // 1
     print("")
     
     
-    print(heap.remove()?.data ?? "")        // 53
+    print(heap.remove()?.data ?? "")        // 53   // Optional(53)
     heap.displayElements()                  //
     print(heap.count)                       // 0
     print("")
     
-    print(heap.remove()?.data ?? "")        //
+    print(heap.remove()?.data ?? "")        //      // nil
 }
 
 

@@ -30,7 +30,7 @@ public class Queue<Element>: LinkedList<Element> {
         
         let result: Node? = first
         first = first?.next
-        tmpCount -= 1
+        count -= 1
         
         return result
     }

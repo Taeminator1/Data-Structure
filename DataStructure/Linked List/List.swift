@@ -43,7 +43,7 @@ public class List<Element>: LinkedList<Element> {
                 newNode.next = tmpNode.next
                 tmpNode.next = newNode
             }
-            tmpCount += 1
+            count += 1
         }
     }
 }
@@ -90,7 +90,7 @@ extension List {
                 tmpNode.next = tmpNode.next!.next
             }
         }
-        tmpCount -= 1
+        count -= 1
         
         return result
     }

@@ -11,21 +11,16 @@ import Foundation
 public class LinkedList<Element> {
     var first: Node<Element>?
     var last: Node<Element>?
-    var tmpCount: Int               // count를 임의로 수정하지 못하게 임시 저장하는 변수
-    
-    /// The number of elements in the collection.
-    public var count: Int {
-        return tmpCount
-    }
+    public internal(set) var count: Int = 0          // The number of elements in the collection.
     
     /// A Boolean value indicating whether the collection is empty.
     public var isEmpty: Bool {
-        return tmpCount == 0
+        return count == 0
     }
     
     /// Create a new instace with making the number of elements 0.
     public init() {
-        self.tmpCount = 0
+        self.count = 0
     }
     
     /// Create a new instance from the given node.
@@ -33,7 +28,7 @@ public class LinkedList<Element> {
     public init(_ node: Node<Element>) {
         self.first = node
         self.last = node
-        self.tmpCount = 1
+        self.count = 1
     }
 }
 
@@ -112,7 +107,7 @@ extension LinkedList {
             last?.next = newNode
         }
         last = newNode
-        tmpCount += 1
+        count += 1
     }
 }
 
