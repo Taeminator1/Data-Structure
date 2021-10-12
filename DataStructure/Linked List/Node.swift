@@ -20,17 +20,11 @@ public class Node<T> {
     public var data: T
     public var next: Node?         // 다음 Node를 가리키기 위한 변수
     
-    /// Sets a data you want to store for the instance.
-    /// - Parameter data: Any kind of data.
-    public init(_ data: T) {
-        self.data = data
-    }
-    
-    /// Sets the data want to store and the node to indicate fron the instance.
+    /// Sets the data want to store and the node to indicate from the instance.
     /// - Parameters:
     ///   - data: Any kind of data.
     ///   - next: A node to indicate.
-    public init(_ data: T, next: Node<T>?) {
+    public init(_ data: T, next: Node<T>? = nil) {
         self.data = data
         self.next = next
     }
