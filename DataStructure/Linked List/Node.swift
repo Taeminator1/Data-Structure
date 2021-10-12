@@ -17,7 +17,7 @@ import Foundation
 ///     print(n2.next!.data)
 ///     // Prints "1"
 public class Node<T> {
-    public var data: T
+    public private(set) var data: T
     public var next: Node?         // 다음 Node를 가리키기 위한 변수
     
     /// Sets the data want to store and the node to indicate from the instance.
@@ -27,10 +27,5 @@ public class Node<T> {
     public init(_ data: T, next: Node<T>? = nil) {
         self.data = data
         self.next = next
-    }
-    
-    /// - Returns: Returns data.
-    public func getData() -> T {
-        return data
     }
 }
