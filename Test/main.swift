@@ -13,5 +13,6 @@ import Foundation
 //queueTest()
 //listTest()
 //heapTest()
-priorityQueueTest()
+//priorityQueueTest()
 
+binaryTree()

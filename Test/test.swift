@@ -27,9 +27,9 @@ func linkedListTest() {
     print(linkedList[1].data)                                       // 4
     print(linkedList[2].data)                                       // 5
 
-    print(linkedList[0].next?.getData() ?? "")                      // 4    // Optional(4)
-    print(linkedList[1].next?.getData() ?? "")                      // 5    // Optional(5)
-    print(linkedList[2].next?.getData() ?? "")                      //      // nil
+    print(linkedList[0].next?.data ?? "")                      // 4    // Optional(4)
+    print(linkedList[1].next?.data ?? "")                      // 5    // Optional(5)
+    print(linkedList[2].next?.data ?? "")                      //      // nil
     
     print(linkedList.count)                                         // 3
 }
@@ -219,3 +219,18 @@ func priorityQueueTest() {
 
 
 
+// MARK:- Binary Tree
+func binaryTree() {
+    print("<Binary Tree Test>")
+    let binaryNodeD: BinaryNode = BinaryNode<String>("D")
+    let binaryNodeE: BinaryNode = BinaryNode<String>("E")
+    let binaryNodeB: BinaryNode = BinaryNode<String>("B", left: binaryNodeD, right: binaryNodeE)
+    let binaryNodeF: BinaryNode = BinaryNode<String>("F")
+    let binaryNodeC: BinaryNode = BinaryNode<String>("C", left: binaryNodeF)
+    let binaryNodeA: BinaryNode = BinaryNode<String>("A", left: binaryNodeB, right: binaryNodeC)
+    
+    let binaryTree: BinaryTree = BinaryTree<String>(root: binaryNodeA)
+    print(binaryTree.inorder())
+    print(binaryTree.preorder())
+    print(binaryTree.postorder())
+}
