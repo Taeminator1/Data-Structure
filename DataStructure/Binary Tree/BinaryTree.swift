@@ -15,11 +15,31 @@ public class BinaryTree<Element> {
     }
     
     public var count: Int {
-        0
+        func recursiveFunction(binaryNode: BinaryNode<Element>?) -> Int {
+            if let node = binaryNode {
+                return 1 + recursiveFunction(binaryNode: node.left) + recursiveFunction(binaryNode: node.right)
+            }
+            else {
+                return 0
+            }
+        }
+        
+        return recursiveFunction(binaryNode: root)
     }
 
     public var height: Int {
-        0
+        func recursiveFunction(binaryNode: BinaryNode<Element>?) -> Int {
+            
+            if let node = binaryNode {
+                let leftHeight: Int = recursiveFunction(binaryNode: node.left)
+                let rightHeight: Int = recursiveFunction(binaryNode: node.right)
+                return max(leftHeight, rightHeight) + 1
+            }
+            else {
+                return 0
+            }
+        }
+        return isEmpty ? 0 : recursiveFunction(binaryNode: root)
     }
     
     public init() {

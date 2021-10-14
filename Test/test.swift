@@ -218,7 +218,6 @@ func priorityQueueTest() {
 }
 
 
-
 // MARK:- Binary Tree
 func binaryTree() {
     print("<Binary Tree Test>")
@@ -233,4 +232,7 @@ func binaryTree() {
     print(binaryTree.inorder())
     print(binaryTree.preorder())
     print(binaryTree.postorder())
+    
+    print(binaryTree.count)
+    print(binaryTree.height)
 }
