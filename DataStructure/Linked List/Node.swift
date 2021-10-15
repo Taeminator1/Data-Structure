@@ -12,7 +12,7 @@ import Foundation
 /// You can use this type with any type and set another instance to approch that one, as in the following example:
 ///
 ///     let n1 = Node<Int>(1)
-///     let n2 = Node<Int>(3, node: n1)
+///     let n2 = Node<Int>(3, next: n1)
 ///     
 ///     print(n2.next!.data)
 ///     // Prints "1"

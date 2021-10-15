@@ -15,4 +15,15 @@ import Foundation
 //heapTest()
 //priorityQueueTest()
 
-binaryTree()
+//binaryTree()
+
+
+import DataStructure
+
+let n1 = BinaryNode<Int>(1)
+let n2 = BinaryNode<Int>(3)
+let n3 = BinaryNode<Int>(2, left: n1, right: n2)
+let t = BinaryTree<Int>(root: n3)
+print(t.inorder())
+print(t.preorder())
+print(t.postorder())
