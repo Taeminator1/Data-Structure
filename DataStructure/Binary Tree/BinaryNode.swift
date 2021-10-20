@@ -18,7 +18,8 @@ import Foundation
 ///
 ///     print(n3.right!.data)
 ///     // Prints "3"
-public class BinaryNode<T> {
+public class BinaryNode<T: Comparable>: Comparable {
+    
     public private(set) var data: T
     public var left: BinaryNode?            // For left child node.
     public var right: BinaryNode?           // For right child node.
@@ -27,7 +28,6 @@ public class BinaryNode<T> {
     public var isLeaf: Bool {
         return left == nil && right == nil
     }
-    
     
     /// Set the data want to store and the root of left or right subtree.
     /// - Parameters:
@@ -38,5 +38,13 @@ public class BinaryNode<T> {
         self.data = data
         self.left = left
         self.right = right
+    }
+    
+    public static func < (lhs: BinaryNode<T>, rhs: BinaryNode<T>) -> Bool {
+        lhs.data < rhs.data
+    }
+    
+    public static func == (lhs: BinaryNode<T>, rhs: BinaryNode<T>) -> Bool {
+        lhs.data == rhs.data
     }
 }

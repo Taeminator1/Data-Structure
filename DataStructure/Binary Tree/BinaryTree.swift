@@ -9,14 +9,13 @@ import Foundation
 
 
 /// this type consist of node that is root.
-public class BinaryTree<Element> {
-    public private(set) var root: BinaryNode<Element>?
+open class BinaryTree<Element: Comparable> {
+    public var root: BinaryNode<Element>?
     
     /// A Boolean value indicating whether the collection is empty.
     public var isEmpty: Bool {
         return root == nil
     }
-    
     
     /// The number of elements in the tree including root.
     ///
@@ -56,14 +55,12 @@ public class BinaryTree<Element> {
         self.root = nil
     }
     
-    public init(root: BinaryNode<Element>) {
+    private init(root: BinaryNode<Element>) {               // 클래스를 상속할 때, 해당 초기화 메소드는 상속 안되게 방지
         self.root = root
     }
 }
 
 extension BinaryTree {
-    
-    
     
     /// Assemble the element of the tree by rouding.
     /// Rounding in order like root of left subtree, root and root of right subtree.
