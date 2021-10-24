@@ -55,7 +55,7 @@ open class BinaryTree<Element: Comparable> {
         self.root = nil
     }
     
-    private init(root: BinaryNode<Element>) {               // 클래스를 상속할 때, 해당 초기화 메소드는 상속 안되게 방지
+    public init(root: BinaryNode<Element>) {
         self.root = root
     }
 }

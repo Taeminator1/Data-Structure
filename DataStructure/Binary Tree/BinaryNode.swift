@@ -29,6 +29,21 @@ public class BinaryNode<T: Comparable>: Comparable {
         return left == nil && right == nil
     }
     
+    /// Retrun the height of the node in the three.
+    public var height: Int {
+        func recursiveFunction(binaryNode: BinaryNode<T>?) -> Int {
+            if let node = binaryNode {
+                let leftHeight: Int = recursiveFunction(binaryNode: node.left)
+                let rightHeight: Int = recursiveFunction(binaryNode: node.right)
+                return max(leftHeight, rightHeight) + 1
+            }
+            else {
+                return 0
+            }
+        }
+        return recursiveFunction(binaryNode: self)
+    }
+    
     /// Set the data want to store and the root of left or right subtree.
     /// - Parameters:
     ///   - data: Any kind of data.

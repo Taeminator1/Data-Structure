@@ -27,3 +27,7 @@ let t = BinaryTree<Int>(root: n3)
 print(t.inorder())
 print(t.preorder())
 print(t.postorder())
+
+print(n1.height)
+print(n2.height)
+print(n3.height)
